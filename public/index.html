@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Tareas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="app-title">Gestor de Tareas</h1>
+
+    <div class="grid">
+
+      <!-- Usuarios -->
+      <section class="card">
+        <h2>Usuarios</h2>
+        <div class="form-group">
+          <input
+            id="userName"
+            placeholder="Nombre del usuario"
+            oninput="this.classList.remove('error')"
+            onkeydown="if(event.key==='Enter') crearUsuario()"
+          />
+          <button onclick="crearUsuario()">Agregar usuario</button>
+        </div>
+        <ul id="listaUsuarios"></ul>
+      </section>
+
+      <!-- Tareas -->
+      <section class="card">
+        <h2>Tareas</h2>
+        <div class="form-group">
+          <input
+            id="taskTitle"
+            placeholder="Título de la tarea"
+            oninput="this.classList.remove('error')"
+            onkeydown="if(event.key==='Enter') crearTarea()"
+          />
+          <select id="userSelect" oninput="this.classList.remove('error')">
+            <option value="">Seleccionar usuario</option>
+          </select>
+          <button onclick="crearTarea()">Agregar tarea</button>
+        </div>
+
+        <div class="search-group">
+          <input id="searchId" type="number" placeholder="Buscar por ID..." oninput="filtrarTareas()" />
+          <input id="searchName" placeholder="Buscar por nombre..." oninput="filtrarTareas()" />
+        </div>
+
+        <ul id="listaTareas"></ul>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
